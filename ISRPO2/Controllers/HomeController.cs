@@ -23,6 +23,21 @@ namespace ISRPO2.Controllers
             return View();
         }
 
+        public IActionResult TaskFirst()
+        {
+            return View();
+        }
+
+        public IActionResult TaskSecond()
+        {
+            return View();
+        }
+
+        public IActionResult TaskThird()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
