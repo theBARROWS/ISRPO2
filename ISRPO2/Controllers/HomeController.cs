@@ -55,8 +55,34 @@ namespace ISRPO2.Controllers
                 return View();
         }
 
+        [HttpPost]
+        public IActionResult TaskSecond(int Number)
+        {
+            if (Number < 100 || Number > 999)
+            {
+                ViewBag.SecondAnswer = "ЧИСЛО НЕ ТРЕХЗНАЧНОЕ!!!";
+                return View();
+            }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+            int digit1 = Number / 100;
+            int digit2 = (Number / 10) % 10;
+            int digit3 = Number % 10; 
+
+            bool isTheseThreeDigitsDifferent = (digit1 != digit2 && digit1 != digit3 && digit2 != digit3);
+
+            if (isTheseThreeDigitsDifferent)
+            {
+                ViewBag.SecondAnswer = "ДА!";
+            }
+            else
+            {
+                ViewBag.SecondAnswer = "НЕТ!";
+            }
+
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
