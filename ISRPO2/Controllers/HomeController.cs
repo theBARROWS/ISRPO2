@@ -82,6 +82,35 @@ namespace ISRPO2.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult TaskThird(int Number)
+        {
+            Random rand = new Random();
+
+            int n = rand.Next(10, 20);
+
+            int[] myArray = new int[n];
+
+            for (int i = 0; i < myArray.Length; i++) myArray[i] = rand.Next(-20, 20);
+
+            string myArr = string.Join(", ", myArray);
+            ViewBag.myArr = myArr;
+
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                if (myArray[i] < 0)
+                {
+                    myArray[i] = myArray[i] * myArray[i];
+                }
+
+            }
+
+            string myNewArr = string.Join(", ", myArray);
+            ViewBag.myNewArr = myNewArr;
+
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
