@@ -3,3 +3,23 @@
 *@
 @{
 }
+
+<div id="TaskFirstSolution"  style="text-align: center">
+    <form method="post">
+        <p>
+            <label>Координата точки по X:</label>
+            <input type="text" name="CoordX" />
+        </p>
+        <p>
+            <label>Координата точки по Y:</label>
+            <input type="text" name="CoordY" />
+        </p>
+        <p>
+            <input type="submit" value="Проверить!"/>
+        </p>
+         <p>
+             <label>Лежит ли точка с данными координатами в 1 или 3 квадрантах?</label>
+             <label>@ViewBag.FirstAnswer</label>
+        </p>
+    </form>
+</div>

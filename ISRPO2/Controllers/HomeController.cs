@@ -37,8 +37,26 @@ namespace ISRPO2.Controllers
         {
             return View();
         }
+        
+        [HttpPost]
+        public IActionResult TaskFirst(int CoordX, int CoordY)
+        {
+                bool isInFirstOrThirdQuadrant = (CoordX > 0 && CoordY > 0) || (CoordX < 0 && CoordY < 0);
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+                if (isInFirstOrThirdQuadrant)
+                {
+                    ViewBag.FirstAnswer = "ДА!";
+                }
+                else
+                {
+                    ViewBag.FirstAnswer = "НЕТ!";
+                }
+
+                return View();
+        }
+
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
